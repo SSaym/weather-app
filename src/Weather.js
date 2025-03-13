@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// require('dotenv').config(); // React doesn't need dotenv library to use environment variables
 
 
 const Weather = () => {
     const [city, setCity] = useState('');
     const [weatherData, setWeatherData] = useState(null);
-    const api_key = "c9c93a329511a53077a3abacf38da738";
+    const api_key = process.env.REACT_APP_API_KEY;
     const fetchData = async () => {
         try {
             const response = await axios.get(
