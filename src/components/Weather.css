@@ -1,0 +1,48 @@
+/* weather container, styles for the temperature, description and icon*/
+.weather-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px 20px 30px;
+}
+
+.weather-info .temperature {
+    font-size: 60px;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.weather-info p {
+    margin: 5px 0 0 0;
+    text-transform: capitalize;
+    font-size: 15px;
+  }
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+/* location section */
+.location p {
+    margin: 0;
+    font-size: 20px;
+    padding: 0px 30px 20px 30px;
+}
+.location-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+}
+
+/* alert section */
+.alert {
+    background-color: #25b3f1;
+    padding: 20px 10px 20px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
