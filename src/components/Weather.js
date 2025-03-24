@@ -3,7 +3,8 @@ import axios from 'axios';
 import Alerts from './Alerts'
 import WeatherIcon from './WeatherIcon';
 import './Weather.css';
-import LocationIcon from '../assets/location.png'; 
+import LocationIcon from '../assets/location.png';
+import Hourly from './Hourly.js'; 
 // require('dotenv').config(); // React doesn't need dotenv library to use environment variables
 
 
@@ -31,7 +32,7 @@ const Weather = () => {
         e.preventDefault();
         fetchData();
     };
-
+    let city_s = null;
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -63,6 +64,9 @@ const Weather = () => {
                         </div>
                         <div className='alert'>
                             <Alerts weatherData={weatherData} />
+                        </div>
+                        <div className='hourly-forecast'>
+                            <Hourly city={weatherData}/>
                         </div>
                     </div>
                 </>
