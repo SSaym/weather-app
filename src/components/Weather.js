@@ -32,7 +32,6 @@ const Weather = () => {
         e.preventDefault();
         fetchData();
     };
-    let city_s = null;
     return (
         <div>
             <form onSubmit={handleSubmit}>
