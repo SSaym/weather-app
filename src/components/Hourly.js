@@ -5,12 +5,13 @@ import WeatherIcon from './WeatherIcon';
 const Hourly = ({city}) => {
     const [weatherData, setWeatherData] = useState(null);
     const api_key = process.env.REACT_APP_API_KEY;
+    const count_hours = 15;
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // get current data
                 const response = await axios.get(
-                    `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city.name}&units=metric&appid=${api_key}&cnt=7`
+                    `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${city.name}&units=metric&appid=${api_key}&cnt=${count_hours}`
                 );
                 setWeatherData(response.data);
             } catch (error) {
@@ -22,7 +23,7 @@ const Hourly = ({city}) => {
     const hourlyElements = [];
     let datetime = "";
     let time = "";
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < count_hours; i++) {
         {weatherData ? (
             datetime = weatherData.list[i].dt_txt,
             time = datetime.split(" ")[1],
