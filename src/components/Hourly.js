@@ -25,13 +25,17 @@ const Hourly = ({city}) => {
     let time = "";
     for (let i = 0; i < count_hours; i++) {
         {weatherData ? (
-            datetime = weatherData.list[i].dt_txt,
-            time = datetime.split(" ")[1],
+            // convert time to local time of location entered
+            datetime = new Date(weatherData.list[i].dt * 1000),
+            // add city timezone offset in seconds
+            datetime.setTime(datetime.getTime() + (weatherData.city.timezone * 1000)),
+            // format time as hh:mm, add a leading 0 if needed
+            time = datetime.getHours().toString().padStart(2, '0') + ':00',
             hourlyElements.push(
                 <div key={i}>
                     <p>
-                        <p>{time.split(":")[0]}:{time.split(":")[1]}</p>
-                        <WeatherIcon condition={weatherData.list[i].weather[0].description} />
+                        <p>{time}</p>
+                        <WeatherIcon condition={weatherData.list[i].weather[0].description} iconCode={weatherData.list[i].weather[0].icon}/>
                         <p>{Math.round(weatherData.list[i].main.temp)}°C</p>
                     </p>
                 </div>  

@@ -52,7 +52,7 @@ const Weather = () => {
                                 <p>{weatherData.weather[0].description}</p>
                             </div>
                             <div className='icon-container'> 
-                                <WeatherIcon condition={weatherData.weather[0].description} /> 
+                                <WeatherIcon condition={weatherData.weather[0].description} iconCode={weatherData.weather[0].icon}/> 
                             </div>
                         </div>
                         <div className='location'>
