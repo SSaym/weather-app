@@ -61,6 +61,7 @@
     text-align: center;
 }
 
+/* hourly forecast section */
 .hourly-forecast {
     background-color: #25b3f1;
     padding: 15px 15px;
@@ -88,3 +89,5 @@
     width: 30px;
     height: 30px;
 }
+
+
