@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import './HamburgerMenu.css';
+import Plus from '../assets/add.png';
+import Trash from '../assets/trash.png';
 
 const HamburgerMenu = ({ locations, saveLocation, removeLocation, selectSavedLocation }) => {
     const [menuOpen, setMenuOpen] = useState(false); // used to toggle menu
@@ -19,31 +22,39 @@ const HamburgerMenu = ({ locations, saveLocation, removeLocation, selectSavedLoc
 
     return (
         <div className="hamburger-menu">
-            <button onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+            <button className={`hamburger-icon ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+            </button>
 
-            {menuOpen && (
-                <div className="menu-content">
-                    <h3>Saved Locations</h3>
+            {/* the menu is always rendered, but use css to control visibility */}
+            <div className={`menu-content ${menuOpen ? 'open' : ''}`}>
+                <h3>Saved Locations</h3>
 
-                    <ul className="location-list">
-                        {/* create a list of saved locations from local storage using a map and display each within a button tag which upon click loads the saved location */}
-                        {locations.length > 0 ? locations.map((location, index) => (
-                            <li key={index}>
+                <ul className="location-list">
+                    {/* create a list of saved locations from local storage using a map and display each within a button tag which upon click loads the saved location */}
+                    {locations.length > 0 ? locations.map((location, index) => (
+                        <li key={index}>
+                            <div className="location-card">
                                 <button className="location-button" onClick={() => {selectSavedLocation(location); setMenuOpen(false)}}>{location}</button>
                                 {/* add a remove button for each list item */}
-                                <button className="remove-button" onClick={() => removeLocation(location)}>X</button> 
-                            </li>
-                        )) : (
-                            <li>No saved locations</li>
-                        )}
-                    </ul>
-
-                    <form onSubmit={handleSubmit}>
-                        <input type='text' placeholder='Add a location' value={city} onChange={handleInputChange} />
-                        <button type="submit">Add</button>
-                    </form>
-                </div>
-            )}
+                                <button className="remove-button" onClick={() => removeLocation(location)}><img src={Trash} alt='trash icon' className='trash-icon'/></button> 
+                            </div>
+                        </li>
+                    )) : (
+                        <li>No saved locations yet...</li>
+                    )}
+                </ul>
+                <hr className="dotted-divider" />
+                
+                {/* input for adding a new location */}
+                <form onSubmit={handleSubmit}>
+                    <input type='text' placeholder='Add a location' value={city} onChange={handleInputChange} />
+                    <button type="submit"><img src={Plus} alt='plus icon' className='plus-icon'/></button>
+                </form>
+            </div>
+            
         </div>
     )
 }

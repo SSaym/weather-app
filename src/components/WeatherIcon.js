@@ -10,7 +10,7 @@ import SnowIcon from '../assets/snow.png';
 import DefaultIcon from '../assets/default.png';
 // night
 import ClearNightIcon from '../assets/clear-night.png';
-import CloudyNightIcon from '../assets/cloudy-night.png'
+import CloudyNightIcon from '../assets/cloudy-night.png';
 
 // uses the condition to return an img tag with an icon based on the condition
 const WeatherIcon = ({ condition, iconCode }) => {

@@ -48,6 +48,7 @@ const Weather = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         fetchData();
+        setCity('')
     };
 
     // location based functions are here for now just incase we need them somewhere else, can move them into HamburgerMenu.js if you want
@@ -77,7 +78,7 @@ const Weather = () => {
         }
     }
 
-    // similr to save location but removes the location from local storage upon the X icon being clicked
+    // similr to save location but removes the location from local storage upon the trash icon being clicked
     const removeLocation = (location) => {
         const updatedLocations = savedLocations.filter(item => item !== location);
         setSavedLocations(updatedLocations);
@@ -98,15 +99,7 @@ const Weather = () => {
                 removeLocation={removeLocation}
                 selectSavedLocation={selectSavedLocation}
             />
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Enter location name"
-                    value={city}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">Get Weather</button>
-            </form>
+
             {weatherData ? (
                 <>
                     <div className='outer-container'>

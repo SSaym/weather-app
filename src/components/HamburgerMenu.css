@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.hamburger-menu {
+    z-index: 1000;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.hamburger-icon {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    z-index: 1001; /* makes sure icon is always on top of menu */
+    position: relative;
+}
+  
+.hamburger-icon .bar {
+    width: 23px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+    border-radius: 1px;
+}
+
+/* animation for hamburger icon, turns the top and last bars into an X */
+.hamburger-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+/* make the middle bar dissapear */
+.hamburger-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* menu content styling */
+.menu-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 380px; /* Prevents menu from getting too wide on large screens */
+    height: 100%;
+    background-color: #25b3f1;
+    padding: 40px 20px 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%);  /* move the menu outside of the viewport for now */
+    transition: transform 0.4s ease-in-out;
+    font-family: Poppins, sans-serif;
+}
+
+.menu-content h3 {
+    font-size: 30px;
+    margin: 10px 0 0 0;
+}
+
+.menu-content.open {
+    transform: translateX(0); /* when icon is clicked, move the menu into view */
+}
+
+.dotted-divider { /* dotted line for clear division */
+    border: none;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    height: 1px;
+    margin: 15px 0;
+}
+
+/* styling for list of locations */
+.location-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.location-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #76d3fc; /* lighter blue for contrast */
+}
+
+/* location card layout */
+.location-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* reset button styles and set text properties */
+.location-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+}
+
+/* form styling */
+form {
+    display: flex;
+    justify-content: center;
+    gap: 3px
+}
+
+form input {
+    border: none;
+    border-radius: 50px;
+    padding: 7px;
+}
+
+form button {
+    border: none;
+    background: none;
+}
+
+/* icon sizes */
+.plus-icon {
+    width: 23px;
+    height: 23px
+}
+
+.trash-icon {
+    width: 15px;
+    height: 15px
+}
+
+
+
+
+
