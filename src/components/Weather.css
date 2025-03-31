@@ -6,9 +6,10 @@
     flex-direction: column;
     width: 100%;
     max-width: 425px;
-    background-color: #76d3fc;
+    background: linear-gradient(to bottom, #25b3f1, #76d3fc); /* gradient for the app */
     min-height: 100vh;
     color: white;
+    overflow: hidden; /* prevent scrolling if unnecessary */
     font-family: Poppins, sans-serif;
   }
 

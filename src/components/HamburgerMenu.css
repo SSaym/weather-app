@@ -45,6 +45,7 @@
     width: 70%;
     max-width: 380px; /* Prevents menu from getting too wide on large screens */
     height: 100%;
+    background: linear-gradient(to bottom, #25b3f1, #76d3fc); /* gradient for the menu */
     background-color: #25b3f1;
     padding: 40px 20px 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
