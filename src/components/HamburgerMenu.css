@@ -138,7 +138,35 @@ form button {
     height: 15px
 }
 
+/* styling for the line list */
+.line-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  
+.line-list li {
+margin-bottom: 8px;
+}
 
+.line-toggle {
+width: 100%;
+padding: 10px;
+border: none;
+border-radius: 6px;
+background-color: rgba(255, 255, 255, 0.2);
+color: white;
+font-size: 16px;
+text-align: left;
+cursor: pointer;
+transition: all 0.2s ease;
+}
 
+.line-toggle.active {
+background-color: rgba(255, 255, 255, 0.4);
+font-weight: 500;
+}
 
-
+.line-toggle:hover {
+background-color: rgba(255, 255, 255, 0.3);
+}

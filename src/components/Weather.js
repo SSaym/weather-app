@@ -6,6 +6,7 @@ import './Weather.css';
 import LocationIcon from '../assets/location.png';
 import Hourly from './Hourly.js'; 
 import HamburgerMenu from './HamburgerMenu.js'
+import TflStatus from './TFLData.js';
 // require('dotenv').config(); // React doesn't need dotenv library to use environment variables
 
 
@@ -26,7 +27,7 @@ const Weather = () => {
     }, []);
 
     const fetchWeather = async (city) => {
-        try {
+        try { 
             // get current data
             const response = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`
@@ -78,7 +79,7 @@ const Weather = () => {
         }
     }
 
-    // similr to save location but removes the location from local storage upon the trash icon being clicked
+    // similar to save location but removes the location from local storage upon the trash icon being clicked
     const removeLocation = (location) => {
         const updatedLocations = savedLocations.filter(item => item !== location);
         setSavedLocations(updatedLocations);
@@ -91,13 +92,39 @@ const Weather = () => {
         fetchWeather(location);
     };
 
+    const [activeLines, setActiveLines] = useState(
+        JSON.parse(localStorage.getItem('savedLines')) || [
+        'bakerloo', 'central', 'circle', 'district', 'dlr',
+        'elizabeth', 'hammersmith-city', 'jubilee', 'metropolitan',
+        'northern', 'piccadilly', 'victoria', 'waterloo-city'
+      ]);
+
+    // Helper function to save active lines to local storage
+    const saveLines = (key, value) => {
+        localStorage.setItem(key, JSON.stringify(value));
+    };
+
+    // Save active lines to local storage whenever they change
+    const toggleLine = (lineId) => {
+        setActiveLines(prev => {
+            const newLines = prev.includes(lineId)
+                ? prev.filter(id => id !== lineId)
+                : [...prev, lineId];
+            saveLines('savedLines', newLines);
+            return newLines;
+        });
+    };
+
     return (
         <div>
-            <HamburgerMenu // pass the saved locations and location based functions as props to HamburgerMenu component
+            <HamburgerMenu // pass the saved locations/lines and location/line based functions as props to HamburgerMenu component
                 locations={savedLocations}
                 saveLocation={saveLocation}
                 removeLocation={removeLocation}
                 selectSavedLocation={selectSavedLocation}
+                setActiveLines={setActiveLines}
+                activeLines={activeLines}
+                toggleLine={toggleLine}
             />
 
             {weatherData ? (
@@ -123,6 +150,9 @@ const Weather = () => {
                         </div>
                         <div className='hourly-forecast'>
                             <Hourly city={weatherData}/>
+                        </div>
+                        <div className='tfl-status'>
+                            <TflStatus location={weatherData.name} activeLines={activeLines} />
                         </div>
                     </div>
                 </>

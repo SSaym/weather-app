@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.tfl-status {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    padding: 15px;
+    background-color: #25b3f1;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    margin: 10px 5px;
+}
+
+.tfl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual line status card */
+.tfl-line-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    min-height: 60px;
+    transition: transform 0.2s ease;
+}
+
+/* Status text */
+.status {
+    font-size: 11px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-top: 6px;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* Loading and Error States */
+.tfl-loading,
+.tfl-error {
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* Tube line colors */
+.bakerloo { background: #B36305; }
+.central { background: #E32017; }
+.circle { background: #FFD300; color: black; }
+.district { background: #00782A; }
+.dlr { background: #00A4A7; }
+.elizabeth { background: #6950A1; }
+.hammersmith-city { background: #F3A9BB; color: black; }
+.jubilee { background: #A0A5A9; }
+.metropolitan { background: #9B0056; }
+.northern { background: #000000; }
+.piccadilly { background: #003688; }
+.victoria { background: #0098D4; }
+.waterloo-city { background: #95CDBA; color: black; }
