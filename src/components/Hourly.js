@@ -4,7 +4,7 @@ import WeatherIcon from './WeatherIcon';
 /* eslint-disable no-unused-expressions */
 const Hourly = ({city}) => {
     const [weatherData, setWeatherData] = useState(null);
-    const api_key = process.env.REACT_APP_API_KEY;
+    const api_key = "f4b7a21b858deafe49d13aaf2bc013f2";
     const count_hours = 15;
     useEffect(() => {
         const fetchData = async () => {
