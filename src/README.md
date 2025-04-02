@@ -26,6 +26,15 @@ This application uses the OpenWeatherMap API. We have included an API key within
 ```bash
 REACT_APP_API_KEY=your_api_key_here
 ```
+4. Find this line in both Weather.js and Hourly.js
+```bash
+const api_key = "f4b7a21b858deafe49d13aaf2bc013f2";
+```
+and replace with
+
+```bash
+const api_key = process.env.REACT_APP_API_KEY;
+```
 - Important: the hourly forecast feature wont work properly without a pro API key.
 
 ## Running the Application

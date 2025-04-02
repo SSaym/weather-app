@@ -15,7 +15,6 @@ const Weather = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [savedLocations, setSavedLocations] = useState([]); // used to track saved locations
     const api_key = "f4b7a21b858deafe49d13aaf2bc013f2"; // moved api key in here for submission
-    // (demo said to do this for now but deactivate the key after we get graded
 
     // load saved locations and default city on component mount
     useEffect(() => {
