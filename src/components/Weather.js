@@ -69,6 +69,7 @@ const Weather = () => {
             
             // update the weather data
             setWeatherData(response.data);
+            update(response.data.weather[0].icon); // update the theme based on the weather icon
             
             // check if it's already in saved locations
             if (!savedLocations.includes(cityName)) {
