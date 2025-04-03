@@ -45,8 +45,8 @@
     width: 70%;
     max-width: 380px; /* Prevents menu from getting too wide on large screens */
     height: 100%;
-    background: linear-gradient(to bottom, #25b3f1, #76d3fc); /* gradient for the menu */
-    background-color: #25b3f1;
+    background: linear-gradient(to bottom, var(--primary-bg-color), var(--secondary-bg-color)); /* gradient for the menu */
+    background-color: var(--primary-bg-color);
     padding: 40px 20px 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     transform: translateX(-100%);  /* move the menu outside of the viewport for now */
@@ -83,7 +83,7 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 6px;
-    background-color: #76d3fc; /* lighter blue for contrast */
+    background-color: var(--secondary-bg-color); /* lighter blue for contrast */
 }
 
 /* location card layout */

@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* VARS FOR THEME (assume light theme as start)*/
+:root {
+  --primary-bg-color: #25b3f1;
+  --secondary-bg-color: #76d3fc;
+}
