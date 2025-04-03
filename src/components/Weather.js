@@ -7,6 +7,7 @@ import LocationIcon from '../assets/location.png';
 import Hourly from './Hourly.js'; 
 import HamburgerMenu from './HamburgerMenu.js'
 import TflStatus from './TFLData.js';
+import { update } from './Theme';
 // require('dotenv').config(); // React doesn't need dotenv library to use environment variables
 
 
@@ -33,6 +34,7 @@ const Weather = () => {
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`
             );
             setWeatherData(response.data);
+            update(response.data.weather[0].icon); // update the theme based on the weather icon
         } catch (error) {
             console.error(error);
         }
@@ -67,6 +69,7 @@ const Weather = () => {
             
             // update the weather data
             setWeatherData(response.data);
+            update(response.data.weather[0].icon); // update the theme based on the weather icon
             
             // check if it's already in saved locations
             if (!savedLocations.includes(cityName)) {
